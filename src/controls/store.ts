@@ -143,7 +143,7 @@ export function getDiceToRoll(
   advantage: Advantage,
   diceById: Record<string, Die>
 ) {
-  const dice: (Die | Dice)[] = [];
+  let dice: (Die | Dice)[] = [];
   const countEntries = Object.entries(counts);
   for (const [id, count] of countEntries) {
     const die = diceById[id];
@@ -152,7 +152,7 @@ export function getDiceToRoll(
     }
     const { style, type } = die;
     for (let i = 0; i < count; i++) {
-      if (advantage === null) {
+      // if (advantage === null) {
         if (type === "D100") {
           // Push a d100 and d10 when rolling a d100
           dice.push({
@@ -161,42 +161,62 @@ export function getDiceToRoll(
               { id: generateDiceId(), style, type: "D10" },
             ],
           });
-        } else {
+        } else if (type === "DDUALITY") {
+            dice.push({
+                dice: [
+                  { id: generateDiceId(), style: "IRON", type: "D12" },
+                  { id: generateDiceId(), style: "GALAXY", type: "D12" },
+                ]
+                // TODO: custom duality combination
+            })
+        } {
           dice.push({ id: generateDiceId(), style, type });
         }
-      } else {
-        // Rolling with advantage or disadvantage
-        const combination = advantage === "ADVANTAGE" ? "HIGHEST" : "LOWEST";
-        if (type === "D100") {
-          // Push 2 d100s and d10s
-          dice.push({
-            dice: [
-              {
-                dice: [
-                  { id: generateDiceId(), style, type: "D100" },
-                  { id: generateDiceId(), style, type: "D10" },
-                ],
-              },
-              {
-                dice: [
-                  { id: generateDiceId(), style, type: "D100" },
-                  { id: generateDiceId(), style, type: "D10" },
-                ],
-              },
-            ],
-            combination,
-          });
-        } else {
-          dice.push({
-            dice: [
-              { id: generateDiceId(), style, type },
-              { id: generateDiceId(), style, type },
-            ],
-            combination,
-          });
-        }
-      }
+    // } else {
+    //     // Rolling with advantage or disadvantage
+    //     const combination = advantage === "ADVANTAGE" ? "SUM" : "SUBTRACT";
+    //     if (type === "D100") {
+    //       // Push 2 d100s and d10s
+    //       dice.push({
+    //         dice: [
+    //           {
+    //             dice: [
+    //               { id: generateDiceId(), style, type: "D100" },
+    //               { id: generateDiceId(), style, type: "D10" },
+    //             ],
+    //           },
+    //           {
+    //             dice: [
+    //               { id: generateDiceId(), style, type: "D100" },
+    //               { id: generateDiceId(), style, type: "D10" },
+    //             ],
+    //           },
+    //         ],
+    //         combination,
+    //       });
+    //     } else {
+    //       dice.push({
+    //         dice: [
+    //           { id: generateDiceId(), style, type },
+    //           { id: generateDiceId(), style, type },
+    //         ],
+    //         combination,
+    //       });
+    //     }
+    //   }
     }
   }
+
+  if (advantage !== null) {
+      const combination = advantage === "ADVANTAGE" ? "SUM" : "SUBTRACT";
+      dice = [{
+          dice: [
+              { dice },
+              { id: generateDiceId(), style: "GLASS", type: "D6" }
+          ],
+          combination
+      }]
+  }
+
   return dice;
 }

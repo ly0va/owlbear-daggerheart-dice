@@ -65,6 +65,8 @@ function combination(dice: Dice) {
     return "<";
   } else if (dice.combination === "NONE") {
     return ",";
+  } else if (dice.combination === "SUBTRACT") {
+    return '-';
   } else {
     return "+";
   }

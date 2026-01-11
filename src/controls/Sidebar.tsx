@@ -2,7 +2,7 @@ import SimpleBar from "simplebar-react";
 import Stack from "@mui/material/Stack";
 import Divider from "@mui/material/Divider";
 
-import { DiceSetPicker } from "./DiceSetPicker";
+// import { DiceSetPicker } from "./DiceSetPicker";
 import { DicePicker } from "./DicePicker";
 import { DiceExtras } from "./DiceExtras";
 import { DiceHidden } from "./DiceHidden";
@@ -26,7 +26,9 @@ export function Sidebar() {
       }}
     >
       <Stack p={1} gap={1} alignItems="center">
-        <DiceSetPicker />
+        {
+            // <DiceSetPicker />
+        }
         <Divider flexItem sx={{ mx: 1 }} />
         <DicePicker />
         <Divider flexItem sx={{ mx: 1 }} />
