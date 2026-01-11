@@ -12,11 +12,11 @@ import * as sunrisePreviews from "./sunrise";
 import * as sunsetPreviews from "./sunset";
 import * as walnutPreviews from "./walnut";
 
-const previews: Record<string, Record<DiceType, string>> = {
-  // GALAXY: galaxyPreviews,
+const previews: Record<string, Record<string, string>> = {
+  GALAXY: galaxyPreviews,
   // GEMSTONE: gemstonePreviews,
   GLASS: glassPreviews,
-  // IRON: ironPreviews,
+  IRON: ironPreviews,
   // NEBULA: nebulaPreviews,
   // SUNRISE: sunrisePreviews,
   // SUNSET: sunsetPreviews,

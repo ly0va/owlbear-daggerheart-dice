@@ -79,9 +79,9 @@ export function getCombinedDiceValue(
   } else if (dice.combination === "LOWEST") {
     return Math.min(...currentValues) + bonus;
   } else if (dice.combination === "SUBTRACT") {
-    // SUBTRACT only happens with 2 values
-    return currentValues[0] - currentValues[1] + bonus;
+    const last = currentValues.pop() || 0;
+    return currentValues.reduce((a, b) => a + b, 0) - last + bonus;
   } else {
-    return currentValues.reduce((a, b) => a + b) + bonus;
+    return currentValues.reduce((a, b) => a + b, 0) + bonus;
   }
 }

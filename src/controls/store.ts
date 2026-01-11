@@ -211,7 +211,7 @@ export function getDiceToRoll(
       const combination = advantage === "ADVANTAGE" ? "SUM" : "SUBTRACT";
       dice = [{
           dice: [
-              { dice },
+              ...dice,
               { id: generateDiceId(), style: "GLASS", type: "D6" }
           ],
           combination
