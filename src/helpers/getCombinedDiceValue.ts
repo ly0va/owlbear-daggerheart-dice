@@ -41,7 +41,7 @@ function checkD100Combination(
 export function getCombinedDiceValue(
   dice: Dice,
   values: Record<string, number>
-): number | null {
+): number | 'CRIT' | null {
   const d100Value = checkD100Combination(dice, values);
   if (d100Value !== null) {
     return d100Value;
@@ -60,6 +60,9 @@ export function getCombinedDiceValue(
       }
     } else if (isDice(dieOrDice)) {
       const value = getCombinedDiceValue(dieOrDice, values);
+      if (value === 'CRIT') {
+        return 'CRIT';
+      }
       if (value !== null) {
         currentValues.push(value);
       }
@@ -81,6 +84,8 @@ export function getCombinedDiceValue(
   } else if (dice.combination === "SUBTRACT") {
     const last = currentValues.pop() || 0;
     return currentValues.reduce((a, b) => a + b, 0) - last + bonus;
+  } else if (currentValues.length === 2 && dice.combination === "DUALITY") {
+    return currentValues[0] === currentValues[1] ? 'CRIT' : currentValues[0] + currentValues[1] + bonus;
   } else {
     return currentValues.reduce((a, b) => a + b, 0) + bonus;
   }

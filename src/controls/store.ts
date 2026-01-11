@@ -166,8 +166,8 @@ export function getDiceToRoll(
                 dice: [
                   { id: generateDiceId(), style: "IRON", type: "D12" },
                   { id: generateDiceId(), style: "GALAXY", type: "D12" },
-                ]
-                // TODO: custom duality combination
+                ],
+                combination: "DUALITY"
             })
         } else {
           dice.push({ id: generateDiceId(), style, type });
