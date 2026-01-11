@@ -47,9 +47,9 @@ const standardSets = [
     id: "DAGGERHEART_STANDARD",
     name: `Daggerheart dice`,
     dice: [
-      { id: `DAGGERHEART_FEAR`, type: "D12", style: "GALAXY" },
-      { id: `DAGGERHEART_HOPE`, type: "D12", style: "IRON" },
-      // { id: `DAGGERHART_DUALITY`, type: "DDUALITY", style: "GLASS" },
+      // { id: `DAGGERHEART_FEAR`, type: "D12", style: "GALAXY" },
+      // { id: `DAGGERHEART_HOPE`, type: "D12", style: "IRON" },
+      { id: `DAGGERHART_DUALITY`, type: "DDUALITY", style: "GLASS" },
       { id: `DAGGERHEART_D4`, type: "D4", style: "GLASS" },
       { id: `DAGGERHEART_D6`, type: "D6", style: "GLASS" },
       { id: `DAGGERHEART_D8`, type: "D8", style: "GLASS" },

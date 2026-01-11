@@ -17,6 +17,7 @@ export function DiceCollider({ diceType }: { diceType: DiceType }) {
     case "D10":
       return <D10Collider />;
     case "D12":
+    case "DDUALITY":
       return <D12Collider />;
     case "D20":
       return <D20Collider />;

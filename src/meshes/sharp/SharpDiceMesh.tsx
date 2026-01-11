@@ -23,6 +23,7 @@ export const SharpDiceMesh = React.forwardRef<THREE.Group, Props>(
       case "D10":
         return <D10 ref={ref} {...props} />;
       case "D12":
+      case "DDUALITY":
         return <D12 ref={ref} {...props} />;
       case "D20":
         return <D20 ref={ref} {...props} />;

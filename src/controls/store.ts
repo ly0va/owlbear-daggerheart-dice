@@ -169,7 +169,7 @@ export function getDiceToRoll(
                 ]
                 // TODO: custom duality combination
             })
-        } {
+        } else {
           dice.push({ id: generateDiceId(), style, type });
         }
     // } else {
