@@ -12,15 +12,15 @@ import * as sunrisePreviews from "./sunrise";
 import * as sunsetPreviews from "./sunset";
 import * as walnutPreviews from "./walnut";
 
-const previews: Record<DiceStyle, Record<DiceType, string>> = {
-  GALAXY: galaxyPreviews,
-  GEMSTONE: gemstonePreviews,
+const previews: Record<string, Record<DiceType, string>> = {
+  // GALAXY: galaxyPreviews,
+  // GEMSTONE: gemstonePreviews,
   GLASS: glassPreviews,
-  IRON: ironPreviews,
-  NEBULA: nebulaPreviews,
-  SUNRISE: sunrisePreviews,
-  SUNSET: sunsetPreviews,
-  WALNUT: walnutPreviews,
+  // IRON: ironPreviews,
+  // NEBULA: nebulaPreviews,
+  // SUNRISE: sunrisePreviews,
+  // SUNSET: sunsetPreviews,
+  // WALNUT: walnutPreviews,
 };
 
 interface PreviewImageProps {

@@ -75,7 +75,7 @@ function combination(dice: Dice) {
 function sortDice(
   die: Die[],
   rollValues: Record<string, number>,
-  combination: "HIGHEST" | "LOWEST" | "SUM" | "NONE" | undefined
+  combination: "HIGHEST" | "LOWEST" | "SUM" | "SUBTRACT" | "NONE" | undefined
 ) {
   return die.sort((a, b) => {
     const aValue = rollValues[a.id];
